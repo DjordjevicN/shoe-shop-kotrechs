@@ -1,5 +1,5 @@
 .navigation {
-  @include flexCenter(row);
+  @include flexCenter(row, space-between);
   padding: 10px 20px;
   .menuIcon {
     font-size: 2rem;

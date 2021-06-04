@@ -16,7 +16,7 @@ function App() {
         <Navigation />
         <Switch>
           <Route path='/' exact component={HomePage} />
-          <Route path='/singleProductPage' component={SingleProductPage} />
+          <Route path='/singleProductPage/:id' component={SingleProductPage} />
           <Route path='/thankYouPage' component={ThankYouPage} />
           <Route path='/billingPage' component={BillingPage} />
         </Switch>

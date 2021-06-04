@@ -7,7 +7,7 @@
     width: 80%;
     margin: 0 auto;
     &--top {
-      @include flexCenter(row);
+      @include flexCenter(row, space-between);
       h1 {
         font-size: 4rem;
       }
