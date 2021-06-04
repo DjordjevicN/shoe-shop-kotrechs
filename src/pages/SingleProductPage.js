@@ -1,11 +1,20 @@
 import React from 'react';
-import { shoes } from '../dummy-data'
+import { connect } from 'react-redux'
+import * as actionCreator from '../store/actions'
 
 function SingleProductPage(props) {
     const shoeId = +props.match.params.id;
-    const shoeToDisplay = shoes.find(item => item.id === shoeId)
-    console.log(shoeToDisplay);
+    const shoeToDisplay = props.shoes.find(item => item.id === shoeId)
     const { title, price, description, image, shortDescription } = shoeToDisplay;
+
+    const addHandler = () => {
+
+        props.addToCart(shoeToDisplay)
+    }
+    const buyHandler = () => {
+        console.log('buy');
+    }
+
     return (
         <div className="singleProduct">
             <div className="singleProduct__content">
@@ -16,8 +25,8 @@ function SingleProductPage(props) {
                         <p>{`$ ${price}`}</p>
                         <p>{shortDescription}</p>
                         <div className="singleProduct--actions">
-                            <button>ADD</button>
-                            <button>BUY NOW</button>
+                            <button onClick={addHandler}>ADD</button>
+                            <button onClick={buyHandler}>BUY NOW</button>
                         </div>
                     </div>
                 </div>
@@ -29,5 +38,14 @@ function SingleProductPage(props) {
         </div>
     );
 }
-
-export default SingleProductPage;
+const mapStateToProps = (state) => {
+    return {
+        shoes: state.mainStore.storeProducts
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: (item) => dispatch(actionCreator.addToCart(item))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SingleProductPage);

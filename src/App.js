@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import SingleProductPage from './pages/SingleProductPage';
 import ThankYouPage from './pages/ThankYouPage';
 import BillingPage from './pages/BillingPage';
+import ShoppingCartPage from './pages/ShoppingCartPage';
 
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={HomePage} />
           <Route path='/singleProductPage/:id' component={SingleProductPage} />
+          <Route path='/shoppingCartPage' component={ShoppingCartPage} />
           <Route path='/thankYouPage' component={ThankYouPage} />
           <Route path='/billingPage' component={BillingPage} />
         </Switch>

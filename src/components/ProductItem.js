@@ -12,9 +12,7 @@ function ProductItem({ shoe }) {
                     <p>{description.substring(0, 100)}...</p>
                     <div className="product--actions">
                         <p>{`$ ${price}`}</p>
-                        <button onClick={() => {
-                            console.log('ADD');
-                        }} className='btn--add--small' >ADD</button>
+                        <button>Details</button>
                     </div>
                 </div>
             </Link>
