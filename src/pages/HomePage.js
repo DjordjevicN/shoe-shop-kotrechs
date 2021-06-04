@@ -3,6 +3,7 @@ import Products from '../components/Products'
 import { shoes } from '../dummy-data'
 
 function Home() {
+
     return (
         <div className='homePage__wrapper'>
             <div className='hero'>

@@ -34,8 +34,7 @@
 .singleProduct {
   width: 100%;
   height: 80vh;
-  display: grid;
-  place-items: center;
+  @include contentCenter;
   &__content {
     width: 60%;
     margin: 0 auto;
@@ -43,6 +42,9 @@
       @include flexCenter(row, space-between);
       img {
         width: 60%;
+      }
+      .mainInformation {
+        margin: 0 50px;
       }
     }
   }
