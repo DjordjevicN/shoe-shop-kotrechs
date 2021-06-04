@@ -1,0 +1,12 @@
+.navigation {
+  @include flexCenter(row);
+  padding: 10px 20px;
+  .menuIcon {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  .logo {
+    width: 100px;
+    cursor: pointer;
+  }
+}

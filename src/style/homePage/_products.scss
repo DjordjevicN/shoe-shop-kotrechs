@@ -1,0 +1,31 @@
+.products__wrapper {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  .products__content {
+    @include flexCenter(row);
+    width: 70%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+}
+
+.products__card {
+  width: 40%;
+  text-align: center;
+  margin-top: 50px;
+  border-radius: 8px;
+  transition: 0.3s;
+  &__content {
+    padding: 50px;
+    img {
+      width: 50%;
+    }
+  }
+  &:hover {
+    box-shadow: 2px 2px 18px #888888;
+  }
+  .product--actions {
+    @include flexCenter(row);
+  }
+}

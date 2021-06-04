@@ -1,0 +1,30 @@
+.footer__wrapper {
+  width: 100%;
+  background-color: $footer--bg;
+  color: $footer--text;
+  margin-top: 60px;
+  .footer__content {
+    width: 80%;
+    margin: 0 auto;
+    &--top {
+      @include flexCenter(row);
+      h1 {
+        font-size: 4rem;
+      }
+    }
+    &--social {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 20px 0;
+      * {
+        padding-left: 20px;
+        transition: 0.3s;
+        cursor: pointer;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}
