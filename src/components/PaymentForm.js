@@ -51,11 +51,10 @@ function PaymentForm(props) {
             try {
                 const { id } = paymentMethod;
                 const response = await axios.post("http://localhost:4000/payment", {
-                    amount: props.billingTotal,
+                    amount: props.billingTotal * 100,
                     id
                 })
                 if (response.data.success) {
-                    console.log('success LOL');
                     setSuccess(true)
                 }
             } catch (error) {
@@ -76,7 +75,7 @@ function PaymentForm(props) {
                             <input
                                 type="text"
                                 label='Name'
-                                placeholder='Full name'
+                                placeholder='Full name: Johnny Smith'
                                 required
                                 value={billingDetails.name}
                                 onChange={(e) => setBillingDetails({ ...billingDetails, name: e.target.value })}
@@ -84,7 +83,7 @@ function PaymentForm(props) {
                             <input
                                 type="email"
                                 label='Email'
-                                placeholder='example@gmail.com'
+                                placeholder='Email: example@gmail.com'
                                 required
                                 value={billingDetails.email}
                                 onChange={(e) => setBillingDetails({ ...billingDetails, email: e.target.value })}
@@ -92,7 +91,7 @@ function PaymentForm(props) {
                             <input
                                 type="text"
                                 label='phone'
-                                placeholder='0601234567'
+                                placeholder='Phone Number: 0601234567'
                                 required
                                 value={billingDetails.phone}
                                 onChange={(e) => setBillingDetails({ ...billingDetails, phone: e.target.value })}
@@ -102,7 +101,7 @@ function PaymentForm(props) {
                             <CardElement options={CARD_OPTIONS} />
                         </div>
                         <div className="payment--action">
-                            <button>{`PAY ${props.billingTotal}`}</button>
+                            <button>{`PAY $${props.billingTotal}`}</button>
                         </div>
                     </form>
                 </div>
@@ -118,61 +117,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, null)(PaymentForm);
-
-
-
-
-
-
-
-
-// <form onSubmit={handleSubmit}>
-//                 <fieldset className="FormGroup">
-//                     <Field
-//                         label="Name"
-//                         id="name"
-//                         type="text"
-//                         placeholder="Jane Doe"
-//                         required
-//                         autoComplete="name"
-//                         value={billingDetails.name}
-//                         onChange={(e) => {
-//                             setBillingDetails({ ...billingDetails, name: e.target.value });
-//                         }}
-//                     />
-//                     <Field
-//                         label="Email"
-//                         id="email"
-//                         type="email"
-//                         placeholder="janedoe@gmail.com"
-//                         required
-//                         autoComplete="email"
-//                         value={billingDetails.email}
-//                         onChange={(e) => {
-//                             setBillingDetails({ ...billingDetails, email: e.target.value });
-//                         }}
-//                     />
-//                     <Field
-//                         label="Phone"
-//                         id="phone"
-//                         type="tel"
-//                         placeholder="(941) 555-0123"
-//                         required
-//                         autoComplete="tel"
-//                         value={billingDetails.phone}
-//                         onChange={(e) => {
-//                             setBillingDetails({ ...billingDetails, phone: e.target.value });
-//                         }}
-//                     />
-//                 </fieldset>
-//                 <fieldset className='FormGroup'>
-//                     <div className="formRow">
-//                         <CardElement options={CARD_OPTIONS} />
-//                     </div>
-//                 </fieldset>
-//                 <button>Pay</button>
-//             </form>
-
-
 
 

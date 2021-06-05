@@ -5,19 +5,18 @@ function ProductItem({ shoe }) {
     const { id, title, description, price, image } = shoe
     return (
         <div className="products__card">
-            <Link className='link' to={`/singleProductPage/${id}`}>
-                <div className='products__card__content'>
-                    <img src={image} alt="nike shoe" />
-                    <h2>{title}</h2>
-                    <p>{description.substring(0, 100)}...</p>
-                    <div className="product--actions">
-                        <p>{`$ ${price}`}</p>
-                        <button>Details</button>
-                    </div>
+            <div className='products__card__content'>
+                <img src={image} alt="nike shoe" />
+                <h2>{title}</h2>
+                <p>{description.substring(0, 100)}...</p>
+                <div className="product--actions">
+                    <p>{`$ ${price}`}</p>
+                    <Link className='link' to={`/singleProductPage/${id}`}>
+                        <button>DETAILS</button>
+                    </Link>
                 </div>
-            </Link>
-        </div>
-
+            </div>
+        </div >
     );
 }
 

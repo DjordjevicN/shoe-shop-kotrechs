@@ -1,27 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import * as actionCreator from '../store/actions'
-import { Redirect } from 'react-router'
 
 function SingleProductPage(props) {
-    const [redirect, setRedirect] = useState(false);
+
     const shoeId = +props.match.params.id;
     const shoeToDisplay = props.shoes.find(item => item.id === shoeId)
     const { title, price, description, image, shortDescription } = shoeToDisplay;
-
-    if (redirect) {
-        return < Redirect to="/shoppingCartPage" />
-    }
+    const history = useHistory()
 
     const addHandler = () => {
-        let newShoeInCart = { ...shoeToDisplay, totalPrice: price, amount: 1 }
-        props.addToCart(newShoeInCart)
+        props.addToCart(shoeToDisplay)
         props.incrementTotal(price)
-        setRedirect(true)
+        history.push("/shoppingCartPage");
     }
 
     const buyHandler = () => {
-        console.log('buy');
+        props.addToCart(shoeToDisplay)
+        props.incrementTotal(price)
+        history.push("/checkoutPage");
     }
 
     return (

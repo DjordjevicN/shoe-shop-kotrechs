@@ -24,7 +24,7 @@
     }
   }
   &:hover {
-    box-shadow: 2px 2px 18px #888888;
+    box-shadow: 2px 2px 18px #c5c5c5;
   }
   .product--actions {
     @include flexCenter(row, space-between);

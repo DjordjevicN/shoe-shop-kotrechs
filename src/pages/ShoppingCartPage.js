@@ -5,7 +5,6 @@ import * as actionCreator from '../store/actions'
 import { useHistory } from 'react-router-dom';
 import Billing from '../components/Billing'
 
-
 function ShoppingCartPage(props) {
     const history = useHistory()
     const redirectHome = () => {
@@ -15,7 +14,7 @@ function ShoppingCartPage(props) {
     return (
         <div className='shoppingCart'>
             <h1>My shopping cart</h1>
-            {props.cart.length > 0 ?
+            {props.cart.length > 0 ? <>
                 <div className='productList'>
                     <div className="itemsInCart__wrapper">
                         {props.cart.map(product => <ShoppingCartItem key={product.id} product={product} />)}
@@ -24,6 +23,8 @@ function ShoppingCartPage(props) {
                         <Billing />
                     </div>
                 </div>
+                <button onClick={redirectHome}>CONTINUE SHOPPING</button>
+            </>
                 :
                 <div className='emptyCart'>
                     <div>
