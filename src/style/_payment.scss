@@ -1,0 +1,39 @@
+.paymentForm {
+  @include contentCenter;
+  width: 100%;
+  height: 90vh;
+  &__content {
+    background-color: $dark--bg;
+    width: 50%;
+    padding: 50px;
+    color: rgb(255, 255, 255);
+    // border-radius: 8px;
+
+    .billingInput {
+      @include flexCenter(column, space-evenly);
+      * {
+        width: 100%;
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
+        padding: 10px 0;
+        border: none;
+        margin: 5px;
+        outline: none;
+        text-align: center;
+        // border-radius: 8px;
+      }
+    }
+  }
+}
+.cardInput {
+  //   border-radius: 8px;
+  padding: 10px 0;
+  margin: 20px 0;
+  background-color: white;
+}
+.payment--action {
+  //   @include flexCenter(row, space-between);
+  button {
+    width: 100%;
+  }
+}

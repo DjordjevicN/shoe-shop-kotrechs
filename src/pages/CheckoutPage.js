@@ -1,12 +1,11 @@
 import React from 'react';
+import StripeContainer from '../components/StripeContainer'
 
 function CheckoutPage() {
-    // call stripe
-    // redirect to than Q page
+
     return (
         <div>
-            checkout
-
+            <StripeContainer />
         </div>
     );
 }
