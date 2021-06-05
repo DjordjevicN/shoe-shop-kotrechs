@@ -23,7 +23,7 @@ const mainState = {
             title: 'AIR MAX 23',
             description: 'The Nike React Infinity Run Flyknit 2 continues to help keep you running. The upper has Flywire technology and Flyknit for support and breathability where you need it. The high foam heights provide soft responsiveness and long-lasting comfort. Its still one of our most tested shoes, designed to help you feel the potential when your foot hits the pavement. This special edition features body-positive imagery courtesy of artist Kelly Anna London.',
             shortDescription: 'One of the most iconic sportswear labels, Nike continues to make us the best that we can be.',
-            price: 280,
+            price: 100,
             modelNum: 23,
             image: '/images/23.png'
         },
@@ -32,7 +32,7 @@ const mainState = {
             title: 'AIR MAX 66',
             description: 'Take on those tough and extreme trail runs with the rugged build of the Nike Wildhorse 7. The upper delivers durable ventilation with support where you need it. Foam midsole cushioning provides responsiveness on every mile.',
             shortDescription: 'One of the most iconic sportswear labels, Nike continues to make us the best that we can be.',
-            price: 580,
+            price: 200,
             modelNum: 66,
             image: '/images/66.png'
         },
@@ -48,6 +48,7 @@ const mainState = {
 
     ],
     shoppingCart: [],
+    billingTotal: 0,
     loading: false,
 }
 const globalReducer = (state = mainState, action) => {
@@ -64,6 +65,12 @@ const globalReducer = (state = mainState, action) => {
             break
         case "REMOVE_FROM_CART":
             newState.shoppingCart = state.shoppingCart.filter(item => item.id !== action.payload)
+            break
+        case "ADD_TO_TOTAL":
+            newState.billingTotal = state.billingTotal + action.payload
+            break
+        case "TAKE_FROM_TOTAL":
+            newState.billingTotal = state.billingTotal - action.payload
             break
         default:
             newState = state

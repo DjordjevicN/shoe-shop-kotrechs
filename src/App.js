@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import SingleProductPage from './pages/SingleProductPage';
 import ThankYouPage from './pages/ThankYouPage';
-import BillingPage from './pages/BillingPage';
+import CheckoutPage from './pages/CheckoutPage';
 import ShoppingCartPage from './pages/ShoppingCartPage';
 
 import Navigation from './components/Navigation'
@@ -20,7 +20,7 @@ function App() {
           <Route path='/singleProductPage/:id' component={SingleProductPage} />
           <Route path='/shoppingCartPage' component={ShoppingCartPage} />
           <Route path='/thankYouPage' component={ThankYouPage} />
-          <Route path='/billingPage' component={BillingPage} />
+          <Route path='/checkoutPage' component={CheckoutPage} />
         </Switch>
         <Footer />
       </div>

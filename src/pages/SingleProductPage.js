@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import * as actionCreator from '../store/actions'
+import { Redirect } from 'react-router'
 
 function SingleProductPage(props) {
+    const [redirect, setRedirect] = useState(false);
     const shoeId = +props.match.params.id;
     const shoeToDisplay = props.shoes.find(item => item.id === shoeId)
     const { title, price, description, image, shortDescription } = shoeToDisplay;
 
-    const addHandler = () => {
-
-        props.addToCart(shoeToDisplay)
+    if (redirect) {
+        return < Redirect to="/shoppingCartPage" />
     }
+
+    const addHandler = () => {
+        let newShoeInCart = { ...shoeToDisplay, totalPrice: price, amount: 1 }
+        props.addToCart(newShoeInCart)
+        props.incrementTotal(price)
+        setRedirect(true)
+    }
+
     const buyHandler = () => {
         console.log('buy');
     }
@@ -40,12 +49,14 @@ function SingleProductPage(props) {
 }
 const mapStateToProps = (state) => {
     return {
-        shoes: state.mainStore.storeProducts
+        shoes: state.mainStore.storeProducts,
+        cart: state.mainStore.shoppingCart
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        addToCart: (item) => dispatch(actionCreator.addToCart(item))
+        addToCart: (item) => dispatch(actionCreator.addToCart(item)),
+        incrementTotal: (amount) => dispatch(actionCreator.incrementTotal(amount))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SingleProductPage);

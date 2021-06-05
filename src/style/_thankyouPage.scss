@@ -1,0 +1,21 @@
+.tnx {
+  @include contentCenter;
+  width: 100%;
+  height: 80vh;
+  &__content {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    h1 {
+      font-size: 5rem;
+    }
+    .checkIcon {
+      color: $good;
+      font-size: 10rem;
+    }
+    .tnxLink {
+      color: $good;
+      margin-top: 60px;
+    }
+  }
+}

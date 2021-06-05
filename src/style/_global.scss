@@ -15,7 +15,8 @@ body {
 button {
   background-color: $accent-main;
   border: none;
-  color: white;
+  color: $dark--text;
+  font-weight: 600;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -29,4 +30,17 @@ button {
 }
 .iconActive {
   color: $accent-main;
+}
+.btn {
+  cursor: pointer;
+}
+.btn--checkout {
+  width: 100%;
+  margin: 0;
+  font-weight: 900;
+  color: #222222;
+}
+
+.warning {
+  color: red;
 }

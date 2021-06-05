@@ -6,8 +6,14 @@ import * as actionCreator from '../store/actions'
 function ShoppingCartItem(props) {
     const [amount, setAmount] = useState(1);
     const { id, title, price, image } = props.product
-    let finalPrice = price * amount
-    console.log(amount);
+    let finalItemPrice = price * amount
+
+    const incrementTotal = () => {
+        props.incrementTotal(price)
+    }
+    const decrementTotal = () => {
+        props.decrementTotal(price)
+    }
     return (
         <div className='shoppingCartItem'>
             <img src={image} alt="nike shoe" />
@@ -16,23 +22,34 @@ function ShoppingCartItem(props) {
                 <p onClick={() => {
                     if (amount > 1) {
                         setAmount(amount - 1)
+                        decrementTotal()
                     }
                 }}>-</p>
                 <p>{amount}</p>
                 <p onClick={() => {
                     setAmount(amount + 1)
+                    incrementTotal()
                 }}>+</p>
             </div>
-            <p>{`$ ${finalPrice}`}</p>
-            <GrClose onClick={() => {
+            <p>{`$ ${finalItemPrice}`}</p>
+            <GrClose className='btn' onClick={() => {
+                props.decrementTotal(finalItemPrice)
                 props.removeItemFromCart(id)
             }} />
         </div>
     );
 }
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
     return {
-        removeItemFromCart: (id) => dispatch(actionCreator.removeItemFromCart(id))
+        billingTotal: state.mainStore.billingTotal
     }
 }
-export default connect(null, mapDispatchToProps)(ShoppingCartItem);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        removeItemFromCart: (id) => dispatch(actionCreator.removeItemFromCart(id)),
+        incrementTotal: (amount) => dispatch(actionCreator.incrementTotal(amount)),
+        decrementTotal: (amount) => dispatch(actionCreator.decrementTotal(amount))
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCartItem);
