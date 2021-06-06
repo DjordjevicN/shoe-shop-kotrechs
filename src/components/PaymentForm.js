@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import * as actionCreator from '../store/actions'
+import { VscLoading } from 'react-icons/vsc';
 
 const CARD_OPTIONS = {
     iconStyle: "solid",
@@ -38,10 +40,13 @@ function PaymentForm(props) {
     const stripe = useStripe()
     const elements = useElements()
     if (success) {
+        props.stopLoading()
         return <Redirect to="/thankYouPage" />
     }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
+        props.startLoading()
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card: elements.getElement(CardElement),
@@ -61,6 +66,7 @@ function PaymentForm(props) {
                 console.log(error);
             }
         } else {
+            props.stopLoading()
             console.log(error.message);
         }
     }
@@ -101,7 +107,7 @@ function PaymentForm(props) {
                             <CardElement options={CARD_OPTIONS} />
                         </div>
                         <div className="payment--action">
-                            <button>{`PAY $${props.billingTotal}`}</button>
+                            {props.loading ? <button><VscLoading className='loadingIcon' /></button> : <button>{`PAY $${props.billingTotal}`}</button>}
                         </div>
                     </form>
                 </div>
@@ -112,10 +118,16 @@ function PaymentForm(props) {
 
 const mapStateToProps = (state) => {
     return {
-        billingTotal: state.mainStore.billingTotal
+        billingTotal: state.mainStore.billingTotal,
+        loading: state.mainStore.loading
     }
 }
-
-export default connect(mapStateToProps, null)(PaymentForm);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        startLoading: () => dispatch(actionCreator.startLoading()),
+        stopLoading: () => dispatch(actionCreator.stopLoading())
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentForm);
 
 

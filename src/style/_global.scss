@@ -44,3 +44,15 @@ button {
 .warning {
   color: red;
 }
+.loadingIcon {
+  font-size: 1rem;
+  animation: loadingAnimation 1s infinite;
+}
+@keyframes loadingAnimation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

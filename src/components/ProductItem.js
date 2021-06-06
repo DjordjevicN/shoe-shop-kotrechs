@@ -8,7 +8,7 @@ function ProductItem({ shoe }) {
             <div className='products__card__content'>
                 <img src={image} alt="nike shoe" />
                 <h2>{title}</h2>
-                <p>{description.substring(0, 100)}...</p>
+                <p>{description.substring(0, 50)}...</p>
                 <div className="product--actions">
                     <p>{`$ ${price}`}</p>
                     <Link className='link' to={`/singleProductPage/${id}`}>

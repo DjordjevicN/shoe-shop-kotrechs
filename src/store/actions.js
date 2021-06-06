@@ -30,3 +30,17 @@ export const decrementTotal = (amount) => {
         })
     }
 }
+export const startLoading = () => {
+    return async (dispatch) => {
+        dispatch({
+            type: 'LOADING_TRUE',
+        })
+    }
+}
+export const stopLoading = () => {
+    return async (dispatch) => {
+        dispatch({
+            type: 'LOADING_FALSE',
+        })
+    }
+}
