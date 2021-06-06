@@ -10,7 +10,6 @@ function Footer() {
             <div className="footer__content">
                 <div className="footer__content--top">
                     <h1>JUST DO IT</h1>
-
                     <a className='link' href='https://news.nike.com/' target="_blank" rel="noreferrer" >
                         <button>Nike NEWS</button>
                     </a>

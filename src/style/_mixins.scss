@@ -8,3 +8,18 @@
   display: grid;
   place-items: center;
 }
+@mixin media-lg {
+  @media screen and (max-width: 1000px) {
+    @content;
+  }
+}
+@mixin media-md {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin media-sm {
+  @media screen and (max-width: 450px) {
+    @content;
+  }
+}

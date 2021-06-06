@@ -1,7 +1,6 @@
 .products__wrapper {
   width: 100%;
-  display: grid;
-  place-items: center;
+  @include contentCenter;
   .products__content {
     @include flexCenter(row, space-between);
     width: 70%;
@@ -44,7 +43,7 @@
         width: 60%;
       }
       .mainInformation {
-        margin: 0 50px;
+        margin: 0 20px;
       }
     }
   }

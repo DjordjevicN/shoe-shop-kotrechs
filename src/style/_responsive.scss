@@ -1,0 +1,101 @@
+@include media-lg {
+  .products__card {
+    width: 50%;
+    &__content {
+      padding: 20px;
+      img {
+        width: 70%;
+      }
+    }
+  }
+
+  .singleProduct {
+    &__content {
+      width: 90%;
+      &--mainInfo {
+        .mainInformation {
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+
+  .shoppingCartItem {
+    width: 90%;
+    img {
+      width: 15%;
+    }
+  }
+
+  .productList {
+    grid-template-columns: 1fr;
+  }
+  .billing {
+    width: 90%;
+    margin: 60px auto;
+  }
+
+  .paymentForm {
+    &__content {
+      width: 70%;
+    }
+  }
+}
+
+@include media-md {
+  .hero__content {
+    width: 100%;
+  }
+
+  .products__wrapper {
+    .products__content {
+      @include flexCenter(column, space-between);
+      width: 90%;
+    }
+  }
+
+  .products__card {
+    width: 70%;
+    &__content {
+      padding: 30px;
+      img {
+        width: 70%;
+      }
+    }
+  }
+
+  .footer__wrapper {
+    .footer__content {
+      &--top {
+        @include flexCenter(column, space-between);
+      }
+    }
+  }
+
+  .singleProduct {
+    &__content {
+      &--mainInfo {
+        @include flexCenter(column, space-between);
+        img {
+          width: 70%;
+        }
+        .mainInformation {
+          margin: 0 20px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .tnx {
+    &__content {
+      width: 80%;
+      h1 {
+        font-size: 2.5rem;
+      }
+      .checkIcon {
+        font-size: 7rem;
+      }
+    }
+  }
+}

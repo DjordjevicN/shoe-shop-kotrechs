@@ -1,24 +1,22 @@
 .hero {
-  display: grid;
-  place-items: center;
+  @include contentCenter;
   width: 100%;
   height: 100vh;
   margin-top: 5%;
   &__content {
+    @include contentCenter;
     width: 80%;
-    display: grid;
-    place-items: center;
     position: relative;
 
     .productImage {
       position: relative;
-      width: 50%;
+      width: 60%;
       display: block;
       margin: 0 auto;
     }
 
     .productNumber {
-      font-size: 40rem;
+      font-size: 40vw;
       line-height: 0;
       margin: 0;
       position: absolute;
