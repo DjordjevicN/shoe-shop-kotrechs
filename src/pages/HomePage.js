@@ -3,7 +3,7 @@ import Products from '../components/Products'
 import { connect } from 'react-redux'
 
 function Home({ shoes }) {
-    const mainShoe = shoes.find(item => item.id === 1)
+    const mainShoe = shoes.find(item => item.id === 2)
     return (
         <div className='homePage__wrapper'>
             <div className='hero'>
@@ -12,6 +12,7 @@ function Home({ shoes }) {
                         <h1 className='productNumber'>{mainShoe.modelNum}</h1>
                         <img className='productImage' src={mainShoe.image} alt="shoe" />
                     </div>
+
                     <h1 className='hero__content--productTitle'>{mainShoe.title}</h1>
                     <p className='hero__content--productDescription'>{mainShoe.description}</p>
                 </div>

@@ -6,7 +6,7 @@ const mainState = {
             description: 'Take on those tough and extreme trail runs with the rugged build of the Nike Wildhorse 7. The upper delivers durable ventilation with support where you need it. Foam midsole cushioning provides responsiveness on every mile.',
             shortDescription: 'One of the most iconic sportswear labels, Nike continues to make us the best that we can be.',
             price: 240,
-            modelNum: 15,
+            modelNum: 3,
             image: '/images/13.png'
         },
         {

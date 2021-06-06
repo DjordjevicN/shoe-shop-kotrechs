@@ -16,7 +16,7 @@ function ProductItem({ shoe }) {
                     </Link>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
 
