@@ -1,5 +1,9 @@
 ![](https://raw.githubusercontent.com/DjordjevicN/imagesRep/master/Screenshot_1.jpg)
 
+1. Clone this repo and backend repo https://github.com/DjordjevicN/shoe-shop-kotrechs-backend 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
