@@ -1,6 +1,10 @@
+# Nike Air Max shop project
+
+Clone this repo and backend repo https://github.com/DjordjevicN/shoe-shop-kotrechs-backend 
+
 ![](https://raw.githubusercontent.com/DjordjevicN/imagesRep/master/Screenshot_1.jpg)
 
-1. Clone this repo and backend repo https://github.com/DjordjevicN/shoe-shop-kotrechs-backend 
+
 
 
 
