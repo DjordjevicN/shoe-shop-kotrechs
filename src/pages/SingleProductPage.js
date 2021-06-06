@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import * as actionCreator from '../store/actions'
 
 function SingleProductPage(props) {
-
+    const [warning, setWarning] = useState(false);
+    const history = useHistory()
     const shoeId = +props.match.params.id;
     const shoeToDisplay = props.shoes.find(item => item.id === shoeId)
     const { title, price, description, image, shortDescription } = shoeToDisplay;
-    const history = useHistory()
+
+    const checkForDuplicates = () => {
+        const checker = (props.cart.some((item) => {
+            return item.id === shoeId
+        }))
+        return checker
+    }
 
     const addHandler = () => {
-        props.addToCart(shoeToDisplay)
-        props.incrementTotal(price)
-        history.push("/shoppingCartPage");
+        if (checkForDuplicates()) {
+            setWarning(true)
+        } else {
+            props.addToCart(shoeToDisplay)
+            props.incrementTotal(price)
+            history.push("/shoppingCartPage");
+        }
     }
 
     const buyHandler = () => {
-        props.addToCart(shoeToDisplay)
-        props.incrementTotal(price)
-        history.push("/checkoutPage");
+        if (checkForDuplicates()) {
+            history.push("/shoppingCartPage");
+        } else {
+            props.addToCart(shoeToDisplay)
+            props.incrementTotal(price)
+            history.push("/checkoutPage");
+        }
     }
 
     return (
@@ -31,6 +46,9 @@ function SingleProductPage(props) {
                         <h1>{title}</h1>
                         <p>{`$ ${price}`}</p>
                         <p>{shortDescription}</p>
+                        {warning ? <div >
+                            <p className="warning">Item is already in the cart </p>
+                        </div> : null}
                         <div className="singleProduct--actions">
                             <button onClick={addHandler}>ADD</button>
                             <button onClick={buyHandler}>BUY NOW</button>
